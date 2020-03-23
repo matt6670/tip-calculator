@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+    <script>
+        var check = false;//  prompt user for billAmount and rateService [use prompt]
+        while (!check)  {
+            var billAmount = prompt("please enter your bill"); //  data validation [using typeOf, check not empty, positive]
+            if ((typeof(billAmount) === "double" || "integer") && billAmount>0) {
+                check = true;
+            }
+        }
+        check = false;
+        while (!check)  {
+            var rateService = prompt("please rate your service between 1 and 10");
+            if ((typeof(rateService) === "double" || "integer") && rateService>=1 && rateService<=10) {//  rateService [checks between 1-10 inclusive]
+                check = true;
+            }
+        }
+
+        var totalBill = 0;
+        totalBill = +billAmount + +(billAmount*(rateService/100)); // calculate total bill [rateService calculates tip based on rating as a percentage of billAmount (from 1-10%)]
+
+        alert(totalBill); //  output to user
+    </script>
+    </body>
+</html>
